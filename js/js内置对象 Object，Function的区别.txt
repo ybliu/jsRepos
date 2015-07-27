@@ -1,0 +1,67 @@
+1、内置对象 Object，Function的区别
+2、Prototype
+3、上下文Context
+
+Array -->其实是一个Function类型的对象，它的prototype 是指向了Function.prototype
+new Array -->这是一个Object对象，它的prototype是指向了Object.prototype
+
+1、对象的创建方法
+
+var obj1={name:"老张"}；问题 ：没类的概念，不能重用
+
+var Dog=function（）{
+    this.name="旺财";
+}
+var d=new Dog();
+alert(d.name);
+d.name="xxx";
+
+2、所有对象是指向Object对象的原型
+Dog 是一个Function对象
+new 了之后才是Object
+对于Function的创建，其实是通过内部的的构造函数来创建，等于调用new Function这个方法来创建
+
+3、Function (函数)的创建方法
+
+function sum1（a,b）{
+
+return a+b;
+
+}
+var sum2=Function（a，b）{
+
+return a+b；
+}
+
+var sum3=new Function（"a"，"b","return a+b"）;
+alert(sum3(12,22))
+
+例子 引用
+
+var sum1=function（a，b）
+{
+    return a+b；
+}
+var sum2=sum1；
+
+alert(sum2(2,2));
+
+sum2=function(a){
+    alert(a);
+}
+//虽然sum2的引用改变了，但是sum1没有指向sum2的引用
+alert(sum1(1))
+
+  function f1(){}
+        var f2 = function(){}
+        var f3 = new Function('str','console.log(str)');
+
+其中都隐含了f3.prototype=new Object（）
+
+
+
+
+
+
+
+

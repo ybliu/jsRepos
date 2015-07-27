@@ -1,0 +1,50 @@
+<html>
+<html>
+ <head>
+   <title>事件流</title>
+   <meta charset="utf-8">   
+   <body>
+      <div id="box">
+         <input type="button" value="按钮" id="btn" >
+         <input type="button" value="按钮2" id="btn2">
+         <input type="button" value="按钮3" id="btn3">
+         <a href="event.html" id="go">跳转</a>
+      </div>
+      <script type="text/javascript">
+      function showMess(event)
+      {
+         alert(event.button);
+         alert(event.offsetX);
+         alert(event.type);
+         alert(event.target.tagName );
+         event.stopPropagation();
+
+         alert("按钮1");
+      }
+       function showMess1()
+      {
+
+         alert("按钮1");
+      }
+       function showMess2()
+      {
+
+         alert("按钮box");
+      }
+      var  btn=document.getElementById('btn');
+      var  btn2=document.getElementById('btn2');
+      var  box=document.getElementById('box');
+      // btn.addEventListener('click',showMess,false); 有冒泡事件
+      //btn2.addEventListener('click',showMess1,false);
+      
+      //box.addEventListener('click',showMess2,false);
+      //  btn.onclick=showMess; 有冒泡事件
+      // box.onclick=showMess2;
+      
+      btn.addEventListener('click',showMess,false);
+      box.addEventListener('click',showMess2,false);
+       
+
+      </script>
+   </body>
+ </head>

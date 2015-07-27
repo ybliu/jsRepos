@@ -1,0 +1,30 @@
+JS获取元素的offsetTop,offsetLeft等属性
+
+
+obj.clientWidth //获取元素的宽度
+obj.clientHeight //元素的高度
+obj.offsetLeft //元素相对于父元素的left
+obj.offsetTop //元素相对于父元素的top
+obj.offsetWidth //元素的宽度
+obj.offsetHeight //元素的高度
+
+区别：
+
+clientWidth = width + padding
+clientHeight = height + padding
+offsetWidth = width + padding + border
+offsetHeight = width + padding + border
+offset比client多了border的宽度
+
+//获取元素的纵坐标（相对于窗口） 
+function getTop(e){ 
+  var offset=e.offsetTop; 
+  if(e.offsetParent!=null) offset+=getTop(e.offsetParent); 
+  return offset; 
+} 
+//获取元素的横坐标（相对于窗口） 
+function getLeft(e){ 
+  var offset=e.offsetLeft; 
+  if(e.offsetParent!=null) offset+=getLeft(e.offsetParent); 
+  return offset; 
+}

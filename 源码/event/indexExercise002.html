@@ -1,0 +1,26 @@
+<html>
+<html>
+ <head>
+   <title>事件流</title>
+   <meta charset="utf-8">   
+   <body>
+      <div id="box">
+         <input type="button" value="按钮" id="btn" >
+         <input type="button" value="按钮2" id="btn2">
+         <input type="button" value="按钮3" id="btn3">
+         <a href="event.html" id="go">跳转</a>
+      </div>
+      <script type="text/javascript">
+      function showMess(event)
+      {
+          event.preventDefault();
+          
+      }
+       
+      var  go=document.getElementById('go');
+      go.addEventListener('click',showMess,false);
+       
+
+      </script>
+   </body>
+ </head>

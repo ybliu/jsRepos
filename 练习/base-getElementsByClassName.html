@@ -1,0 +1,49 @@
+<html>
+
+ <head>
+   <title>事件流</title>
+   <meta charset="utf-8">
+   <script src="../js/base.js"></script>
+   <style type="text/CSS">
+   #test1{background:blue;height:100px;}
+   #test2{background:green;height:100px;}
+   </style>
+ </head>
+   <body>
+     <span class="a">1</span>
+    <span class="a">2</span>
+    <p class="a">3</p>
+<div class="b">4</div>
+<strong class="b">5</strong>
+<div id="wrapper"><strong class="b">6</strong></div>
+<script type="text/JavaScript">
+function getElementsByClassName(str,root,tag){
+if(root){
+root = typeof root == "string" ? document.getElementById(root) : root;
+} else {
+root = document.body;
+}
+tag = tag || "*";
+var els = root.getElementsByTagName(tag),arr = [];
+for(var i=0,n=els.length;i<n;i++){
+for(var j=0,k=els[i].className.split(" "),l=k.length;j<l;j++){
+if(k[j] == str){
+arr.push(els[i]);
+break;
+}
+}
+}
+return arr;
+}
+var aEls = getElementsByClassName("a") , bEls =
+getElementsByClassName("b","wrapper") , bEls2 =
+getElementsByClassName("b",null,"strong");
+alert(aEls.length); // 3 (1,2,3)
+alert(bEls.length); // 1 (6)
+alert(bEls2.length); // 2 (5,6)
+</script>
+   </body>
+   
+
+
+</html>

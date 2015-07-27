@@ -1,0 +1,43 @@
+<html>
+
+ <head>
+   <title>事件流</title>
+   <meta charset="utf-8">
+   <script src="../js/base.js"></script>
+  
+ </head>
+   <body>
+   <!-- 1.event.srcElement.parentNode.tagName; 
+   得到上一个节点的标签名称  -->
+      <div id="xx"> 
+         <input type="button" value="父元素标签" onclick="alert(event.srcElement.parentNode.id)"> 
+      </div> 
+     <select name="selectname" onchange="alert(event.srcElement.options[event.srcElement.selectedIndex].value)" >   
+       <option value="1">1</option>   
+       <option value="2">2</option>   
+       <option value="3">3</option>   
+       <option value="4">4</option>   
+       <option value="5">5</option>   
+     </select>   
+   </body>
+   <script type="text/javascript">
+   function superClass(){
+
+       this.name = 'floatyears';
+
+  }
+
+  superClass.prototype.sayHi = function(){
+
+       alert('Hi');
+
+  }
+  function subClass(){}
+
+subClass.prototype = new superClass();
+
+subClass.prototype.constructor = subClass;
+   </script>
+
+
+</html>
